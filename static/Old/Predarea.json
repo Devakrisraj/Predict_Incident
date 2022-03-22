@@ -1,0 +1,1 @@
+{"schema": {"fields":[{"name":"Predarea","type":"string"},{"name":"Acrnonym","type":"string"}],"pandas_version":"0.20.0"}, "data": [{"Predarea":"ULP","Acrnonym":"Unit Linked Pension"}]}

@@ -1,0 +1,370 @@
+﻿{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Prediction Advisory Tool</title>
+    <!--<LINK href="Styles.css" type="text/css" rel="stylesheet">-->
+    <LINK href="https://unpkg.com/swiper/swiper-bundle.css" type="text/css" rel="stylesheet">
+    {% block css %} {% endblock %}
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        section {
+            position: relative;
+            top:50px;
+            width: 100%;
+            height: 90%;
+            padding: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            /*top:70px;*/
+        }
+
+            section .SopraSterialogo1 {
+                position: absolute;
+                top: 5px;
+                bottom: 5px;
+                left: 5px;
+            }
+
+            section .circle {
+                position: absolute;
+                background: #e51e2a;
+                border-radius: 50%;
+                width: 50%;
+                height: 50%;
+                align-items: center;
+                
+            }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10%;
+            padding: 50px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #navigation {
+            margin-left: 80px;
+            top: 10px
+        }
+
+            #navigation ul {
+                list-style: none;
+            }
+
+                #navigation ul li {
+                    background-color: whitesmoke;
+                    border: 2px solid white;
+                    top: 10px;
+                    left: 70px;
+                    width: 190px;
+                    height: 50px;
+                    line-height: 25px;
+                    text-align: center;
+                    float: left;
+                }
+
+                    #navigation ul li a {
+                        text-decoration: none;
+                        color: black;
+                        display: block;
+                    }
+
+                        #navigation ul li a:hover {
+                            background-color: gray;
+                            border-radius: 10px;
+                        }
+
+                #navigation ul ul {
+                    position: absolute;
+                    display: none;
+                }
+
+                #navigation ul li:hover > ul {
+                    display: block;
+                }
+
+                #navigation ul ul ul {
+                    margin-left: 100px;
+                }
+
+
+
+        .clock {
+            position: relative;
+            display: flex;
+            left: 200px;
+            font-size: 12pt;
+            font-weight: 500;
+        }
+
+
+
+        .content {
+            left: 3px;
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: black;
+        }
+
+            .content .textBox {
+                position: relative;
+                max-width: 600px;
+                margin-right: 20px;
+                left: 3px;
+            }
+
+                .content .textBox h2 {
+                    left: 3px;
+                    color: black;
+                    font-size: 18pt;
+                    margin-bottom: 10px;
+                    line-height: 1.4em;
+                    font-weight: 700;
+                    max-width: 600px;
+                    margin-right: 20px;
+                    top: 20px;
+                }
+
+                .content .textBox p {
+                    color: black;
+                }
+
+                .content .textBox a {
+                    left: 3px;
+                    display: inline;
+                    margin-top: 20px;
+                    padding: 8px 20px;
+                    background: #e51e2a;
+                    color: black;
+                    border-radius: 40px;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    text-decoration: none;
+                }
+
+        .Sci {
+            position: absolute;
+            top: 600px;
+            bottom: 15px;
+            left: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .Sci li {
+                list-style: none;
+            }
+
+                .Sci li a {
+                    display: inline-block;
+                    margin-left: 2px;
+                    background: white;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    transition: 0.2s ease-in-out;
+                }
+
+                    .Sci li a:hover {
+                        background: #e51e2a;
+                        transform: translateY(-10px);
+                    }
+
+                    .Sci li a img {
+                        filter: invert(1);
+                        transform: scale(0.5);
+                    }
+
+        .SteriaLogo {
+            position: absolute;
+            background: white;
+            top: 10px;
+            bottom: 40px;
+            left: 1300px;
+            height: 50px;
+            width: 220px;
+            align-items: center;
+        }
+
+        .TablePic {
+            position: absolute;
+            top: 200px;
+            bottom: 20px;
+            right: 300px;
+            display: flex;
+        }
+
+        .content1 {
+            left: 3px;
+            position: relative;
+            top: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: black;
+        }
+
+        .content .textBox1 {
+            position: relative;
+            max-width: 500px;
+            margin-right: 20px;
+            left: 3px;
+        }
+
+            .content .textBox1 h2 {
+                left: 3px;
+                color: black;
+                font-size: 18pt;
+                margin-bottom: 10px;
+                line-height: 1.4em;
+                font-weight: 700;
+                max-width: 600px;
+                margin-right: 20px;
+            }
+        .button {
+            background-color: #0020C2;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+        .button5 {font-size: 24px;}
+        .boxes{ 
+	        width:50%; 
+	        float:left; 
+	    }
+        #mainDiv{ 
+		    width:50%; 
+            margin:auto;
+        } 
+	    img{ 
+		    max-width:100%; 
+	    } 
+    </style>
+</head>
+<body>
+    <!--<form id="form1">-->
+        <div>
+            <body style="background: url({% static 'images/whtered.png' %}) no-repeat; background-size: 100% 100%;"></body>
+            <div class="SopraSterialogo1">
+                <a href="#"><img src="{% static 'images/Title.png' %}" class="SopraSterialogo"></a>
+            </div>
+            <div id="navigation">
+                <ul>
+                    <li><a href="{% url 'home' %}"> Home </a></li>
+                    <li>
+                        <a href="#"> Product </a>
+                        <ul>
+                            <li>
+                                <a href="{ url_for('SerMgmt') }">Service Management </a>
+                                <ul>
+                                  <li><a href="{% url 'predanlys' %}"> Prediction Analysis </a>
+                                      <a href="{% url 'dashboard' %}"> Dashboard </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="{{About}}"> About </a></li>
+                    <li><a href="{{Help}}"> Help </a></li>
+                    <li><a href="{{logout}}"> Logout </a></li>
+                </ul>
+            </div>
+
+            <div class="SteriaLogo">
+                <img src="{% static 'images/sslogo1.png' %}" class="SopraSteria3" />
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <center>
+            {% block content %}
+            <div class="prediction"> {{table|safe }}
+            </div>
+            </center>
+            <div id="mainDiv">
+                <div id="divOne" class="boxes"> 
+                    <img src="{% static 'images\series.png' %}" alt="" height="400" width="600" style="float:left">
+                </div>                                
+                <div id="divTwo" class="boxes">
+                    <img src="{% static 'images\barchart.png' %}" alt="" height="400" width="600" style="float:right">
+                </div>
+            </div>
+                <!--<img src="{% static 'images\barchart.png' %} width="150" height="200" style="float:right">-->
+                 <!--<div class="prediction"> {{table|safe }} </div>
+                 <br/>
+                 <br/>
+                 <div class='section'>
+                    <div class='flex column plot mt15 mlr15 justify-left align-left'>
+                      <img src='{{ imuri }}'/>
+                    </div>
+                  </div>-->
+                 <!--<img src="data:image/png;base64,{{ data|safe }}" alt="" height="250" ,width="250">-->
+            {% endblock %}
+            
+            <!--<div class="clock">
+                <p><span id="datetime"></span>.</p>
+                <script src="Time.js"></script>
+            </div>-->
+            <!--{% block content1 %}-->
+            <!--<section>
+                <div class="circle"></div>
+                <header>
+                </header>-->
+
+                <!--<asp:ContentPlaceHolder ID="Header" runat="server">
+                </asp:ContentPlaceHolder>
+            </section>-->
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <footer>
+            <ul class="Sci">
+                <li><a href="https://www.facebook.com/SopraSteria.in/"><img src="{% static 'images\facebook.png' %}" class="facebook"></a></li>
+                <li><a href="https://twitter.com/SopraSteria_in"><img src="{% static 'images\twitter.png' %}" class="twitter"></a></li>
+                <li><a href="https://www.instagram.com/soprasteriaindia/"><img src="{% static 'images\insta.png' %}" class="Inst"></a></li>
+            </ul>
+        </footer>
+
+    <!--</form>-->
+        <!--{% endblock %}-->
+</body>
+</html>

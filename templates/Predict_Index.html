@@ -1,0 +1,256 @@
+﻿{% load static %}
+
+
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
+    <link rel="stylesheet" href="{% static 'Dashboard/style.css' %}">
+        <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        sidebar .swiper-container {
+            top: 500px;
+            bottom: 500px;
+            left: 300px;
+            width: 50%;
+            height: 50%;
+        }
+
+        sidebar .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+            sidebar .swiper-slide img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+    </style>
+
+</head>
+<body>
+    <div class="sidebar" style="background: url({% static 'images/DS7.jpg' %}) no-repeat; background-size: 100% 100%;" >
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">Prediction Advisory Tool</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="{% url 'predanlys' %}" class="active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Prediction Analysis</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'dashboard' %}"> 
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'accuracy' %}">
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Accuracy Check</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Help</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+        <br>
+        <br>
+        <!--<section>
+            < Swiper >
+            <div class="swiper-container mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="{% static 'images/DS1.PNG' %}" /></div>
+                    <div class="swiper-slide"><img src="{% static 'images/DS2.PNG' %}" /></div>
+                    <div class="swiper-slide"><img src="{% static 'images/DS3.PNG' %}" /></div>
+                    <div class="swiper-slide"><img src="{% static 'images/DS4.PNG' %}" /></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>-->
+        
+
+    </div>
+    <section class="home-section">
+        <nav>
+            <div class="sidebar-button">
+                <i class='bx bx-menu sidebarBtn'></i>
+                <span class="dashboard">Prediction Advisory Input</span>
+            </div>
+            <div class="search-box">
+                <img width="250"src="{% static 'Dashboard//logo2.png' %}" alt="">
+            </div>
+            <div class="profile-details">
+                <img width="30" src="{% static 'Dashboard/avatar.svg' %}" alt="">
+                <!--<i class='bx bx-chevron-down'></i>-->
+            </div>
+        </nav>
+        
+        <div class="home-contentP">
+            <div class="overview-boxesP">
+                <div class="boxP">
+                    <div class="right-sideP">
+                        <form action="/prediction/" method="post" enctype="multipart/form-data">
+                            <br>
+                            {% csrf_token %}
+                                {{data_external}}
+                            <label for="Prediction Area">Prediction Area:</label>
+                            <div class="select">
+                            <select name="Prediction Area" id="Prediction Area">
+                                <option selected disabled>Choose Prediction area</option>
+                                <option value="NI">New Tickets</option>
+                                <option value="NB">New Business</option>
+                                <option value="PO">Payment Out</option>
+                            </select>
+                            </div>
+                            <br>
+                            <br>
+
+                            {% csrf_token %}
+                            <label for="Prediction Application">Prediction Application:</label>
+                            <div class="select">
+                            <select name="Prediction Application" id="Prediction Application">
+                                <option selected disabled>Choose Application</option>
+                                <option value="Annuity Payments (APOLLO)">Annuity</option>
+                                <option value="Climate (Conventional Life)">LIFE</option>
+                                <option value="Unit Linked Pensions">Unit Linked Pensions</option>
+                                <option value="Unit Linked Life">Unit Linked Life</option>
+                                <option value="HPS CKB">CKB</option>
+                            </select>
+                              </div>
+                            <br>
+                            <br>
+                           
+
+                            <input type="file" id="real-file" name="transfile" hidden="hidden" />
+                            <button type="button" id="custom-button">CHOOSE A FILE</button>
+                            <span id="custom-text">No file chosen, yet.</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="submit" id="custom-button">  Submit   </button>
+
+                            <br>
+                            <br>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            
+  
+      
+</div>
+
+</section>
+
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function () {
+            sidebar.classList.toggle("active");
+            if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } elsed
+                sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+
+        const realFileBtn = document.getElementById("real-file");
+        const customBtn = document.getElementById("custom-button");
+        const customTxt = document.getElementById("custom-text");
+
+    customBtn.addEventListener("click", function() {
+    realFileBtn.click();
+    });
+
+    realFileBtn.addEventListener("change", function() {
+    if (realFileBtn.value) {
+    customTxt.innerHTML = realFileBtn.value.match(
+      /[\/\\]([\w\d\s\.\-\(\)]+)$/
+    )[1];
+  } else {
+    customTxt.innerHTML = "No file chosen, yet.";
+  }
+});
+
+    </script>
+
+    <script src="https://github.com/nolimits4web/swiper/blob/Swiper3/dist/js/swiper.jquery.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+
+
+</body>
+</html>
+

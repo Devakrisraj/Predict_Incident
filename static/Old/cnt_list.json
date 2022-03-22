@@ -1,0 +1,1 @@
+{"schema": {"fields":[{"name":"Title","type":"string"},{"name":"Count","type":"string"}],"pandas_version":"0.20.0"}, "data": [{"Title":"Incident Count","Count":1053},{"Title":"Inprogress Count","Count":69},{"Title":"Closed Count","Count":984}]}

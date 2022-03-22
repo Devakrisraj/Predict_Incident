@@ -1,0 +1,95 @@
+{% extends "Predict_Index.html" %}
+{% block css %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!--<link rel="stylesheet" href="static\IncidentUpdate.css">-->
+{% endblock %}
+{% block prediction %}
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<!--<body style="background: url({% static 'images/sslake.png' %}) no-repeat; background-size: 100% 100%;">
+<img src="{% static 'images/sslogo.png' %}" style="width:250px;">
+<h3> <a href="Home_Screen2.html">Home</a> </h3>-->
+<center>
+<!--{% block content %}-->
+<h1>Prediction Advisory Dashboard</h1>
+    <br/>
+    <br/>
+ <form action="/prediction/" method="post" enctype="multipart/form-data">
+  <!--{% csrf_token %}-->
+  {{data_external}}
+    <label for="Prediction Area">Prediction Area:</label>
+    <select name="Prediction Area" id="Prediction Area">
+    <option value="NI">New Tickets</option>
+    <option value="NB">New Business</option>
+    <option value="PO">Payment Out</option>
+    </select>
+   <br/>
+   <br/>
+  <!-- {% csrf_token %}-->
+    <label for="Prediction Application">Prediction Application:</label>
+    <select name="Prediction Application" id="Prediction Application">
+    <option value="Annuity Payments (APOLLO)">Annuity</option>
+    <option value="Climate (Conventional Life)">LIFE</option>  
+    <option value="Unit Linked Pensions">Unit Linked Pensions</option>
+    <option value="Unit Linked Life">Unit Linked Life</option>
+    <option value="HPS CKB">CKB</option>
+    </select>
+   <br/>
+   <br/>
+    <input type="file" name="transfile" required="required">
+   <button type="submit">Upload file</button>
+ </form>
+
+ {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+ {% endif %}
+
+ <!--<table border="1px"> 
+	<tr> 
+		{% for data in DataFrame %} 
+			<th>{{ data }}</th> 
+		{% endfor %} 
+ 
+		{% for _, record in DataFrame.iterrows %} 
+			<tr> 
+				{% for value in data %} 
+					<td>{{ value }}</td> 
+				{% endfor %} 
+			</tr> 
+		{% endfor %} 
+	</tr> 
+</table>-->
+<br/>
+<br/>
+<div class="prediction"> {{table|safe }} </div>
+<br/>
+<br/>
+<img src="data:image/png;base64,{{ data|safe }}" alt="" height="250" ,width="250">
+<!--<p><a href="{% url 'home' %}">Return to home</a></p>-->
+</center>
+{% endblock %}
+{% endblock %}
+<br/>
+<br/>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

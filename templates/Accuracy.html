@@ -1,0 +1,290 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet"/>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'Dashboard/Dstyles.css' %}" />
+    <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>CSS GRID DASHBOARD</title>
+  </head>
+  <body id="body">
+    <div class="container">
+      <nav class="navbar">
+        <div class="sidebar-button">
+          <i class='bx bx-menu sidebarBtn'></i>
+          <span class="Accuracy">Accuracy</span>
+        </div>
+        <!--<div class="nav_icon" onclick="toggleSidebar()">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <div class="navbar__left card:hover">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Help</a>
+        </div>-->
+        <!--<div class="navbar__left">  
+        
+        <input type="file" id="real-file" hidden="hidden" />
+        <button type="button" id="custom-button">CHOOSE A FILE</button>
+        <span id="custom-text">No file chosen, yet.</span>
+        </div>-->
+      <!--    <a class="active_link" href="#">Upload File</a> -->
+        
+        <div class="navbar__right">
+          <a href="#">
+            <img width="250" src="{% static 'Dashboard//logo2.png' %}" alt="" />
+          </a>
+          <!--<a href="#">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+          </a>-->
+          <a href="#">
+            <img width="30" src="{% static 'Dashboard/avatar.svg' %}" alt="" />
+            <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
+          </a>
+        </div>
+      </nav>
+
+      <main>
+        <div class="main__container">
+          
+        
+          <!-- MAIN CARDS ENDS HERE -->
+
+          <!-- CHARTS STARTS HERE -->
+          <!--<div class="container">
+            <div class="row">
+              <div class="col-6 chartsjs">
+                <canvas id="myChart" width="500" height="400"></canvas>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 chartsjs">
+                <canvas id="myChart3" width="500" height="400"></canvas>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6 chartsjs">
+                <canvas id="myChart2" width="500" height="400"></canvas>
+              </div>
+            <img src="{% static 'images\series.png' %}" alt="" height="400" width="600" style="float:left">
+            <img src="{% static 'images\barchart.png' %}" alt="" height="400" width="600" style="float:right">
+            </div>
+          </div>-->
+          
+          <br>
+          <br>
+          <div class="scroll">
+              <marquee width="100%" direction="right" scrollamount="12" height="40px" color = "#0000FF">
+                <font color = "#00008B">
+                <h1>Accuracy Check Report</h1></font>
+              </marquee>
+          </div>
+
+          <div class="main__cards">
+            <div class="charts">
+              <div class="charts__left">
+                <div class="charts__left__title">
+                  <div>
+                    <h1>Trend Line</h1>
+                    <img src="{% static 'images\series.png' %}" alt="" height="400" width="400" style="float:left">
+                  </div>
+                </div>
+              </div>
+  
+              <div class="charts__left">
+                <div class="charts__left__title">
+                  <div>
+                    <h1>Prediction Result</h1>
+                    <canvas id="myChart4" width="400" height="400"></canvas>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="charts__left">
+                <div class="charts__left__title">
+                  <div>
+                    <h1>Decompose</h1>
+                    <img src="{% static 'images\Accuracy.png' %}" alt="" height="400" width="400" style="float:left">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!--<div class="charts__left">
+              <div class="charts__left__title">
+                <div>
+                  <h1>Predicted Tickets Counts </h1>
+                  <img src="{% static 'images\barchart.png' %}" alt="" height="400" width="500" style="float:right">
+                </div>
+              </div>
+            </div>
+           </div>-->
+
+          <!--<script src="{% static 'Dashboard/script.js' %}"></script>-->
+
+                    <!-- CHARTS ENDS HERE -->
+        </div>
+      </main>
+      <div class="sidebar" style="background: url({% static 'images/DS7.jpg' %}) no-repeat; background-size: 100% 100%;" >
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">Prediction Advisory Tool</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="{% url 'predanlys' %}">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Prediction Analysis</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'dashboard' %}">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'accuracy' %}" class="active">
+                    <i class='bx bx-list-ul'></i>
+                    <span class="links_name">Accuracy Check</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Help</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">Log out</span>
+                </a>
+            </li>
+        </ul>
+        <br></br>
+        <section>
+        <div class="bgimg" style="background: url({% static 'images/DS1.png' %}) no-repeat; background-size: 100% 100%;" ></div>
+        </section>
+      </div>
+    </div>
+      <!--<div id="sidebar">
+        <div class="sidebar__title">
+          <div class="sidebar__img">
+            <img width="50" height = "50" src="{% static 'Dashboard/logo5.png' %}"" alt="logo" />
+            <h1>Prediction Advisory Tool </h1>
+          </div>
+          <i
+            onclick="closeSidebar()"
+            class="fa fa-times"
+            id="sidebarIcon"
+            aria-hidden="true"
+          ></i>
+        </div>
+
+        <div class="sidebar__menu">
+          <div class="sidebar__link active_menu_link">
+            <i class="fa fa-home"></i>
+            <a href="#">Home</a>
+          </div>
+          <div class="sidebar__menu">
+            <h1>SERVICES</h1>
+          </div>
+          <h2>SERVICE MANGEMENT</h2>
+          <div class="sidebar__link">
+            <i class="fa fa-user-secret" aria-hidden="true"></i>
+            <a href="{% url 'predanlys' %}">Prediction Analysis</a>
+          </div>
+          <div class="sidebar__link">
+            <i class="fa fa-building-o"></i>
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+          </div>-->
+          <!--<li>
+            <a href="#"> Service </a>
+          <div class="sidebar__link">
+            <i class="fa fa-user-secret" aria-hidden="true"></i>
+            <ul>
+              <li>
+                  <a href="{ url_for('SerMgmt') }">Service Management </a>
+                  <ul>
+                    <li><a href="{% url 'predanlys' %}"> Prediction Analysis </a>
+                        <a href="{% url 'dashboard' %}"> Dashboard </a></li>
+                  </ul>
+              </li>
+            </ul>
+          </div>
+          </li>-->
+          <!--<div class="sidebar1__link active_menu_link">
+            <i class="fa fa-handshake-o"></i>
+            <a href="#">About</a>
+          </div>
+          <div class="sidebar1__link active_menu_link">
+            <i class="fa fa-handshake-o"></i>
+            <a href="#">Help</a>
+          </div>
+          <div class="sidebar1__logout">
+            <i class="fa fa-power-off"></i>
+            <a href="#">Log out</a>
+          </div>-->
+        <!--</div>
+      </div>
+    </div>-->
+    
+    <!--<script src="https://github.com/nolimits4web/swiper/blob/Swiper3/dist/js/swiper.jquery.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="{% static 'Dashboard/Script.js' %}"></script>
+    <script>
+      let sidebar1 = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".sidebarBtn");
+      sidebarBtn.onclick = function () {
+      sidebar1.classList.toggle("active");
+      if (sidebar1.classList.contains("active")) {
+      sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+      } else
+      sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      }
+
+      const realFileBtn = document.getElementById("real-file");
+      const customBtn = document.getElementById("custom-button");
+      const customTxt = document.getElementById("custom-text");
+
+      customBtn.addEventListener("click", function() {
+      realFileBtn.click();
+    });
+
+    realFileBtn.addEventListener("change", function() {
+    if (realFileBtn.value) {
+    customTxt.innerHTML = realFileBtn.value.match(
+      /[\/\\]([\w\d\s\.\-\(\)]+)$/
+    )[1];
+    } else {
+    customTxt.innerHTML = "No file chosen, yet.";
+    }
+    });
+    </script>
+    
+      <!--<div id="divOne" class="boxes">--> 
+          
+      <!--</div>-->                               
+      <!--<div id="divTwo" class="boxes">-->
+          
+      <!--</div>-->
+    
+       
+  </body>
+</html>

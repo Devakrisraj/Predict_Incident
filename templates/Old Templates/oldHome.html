@@ -1,0 +1,87 @@
+﻿{% extends "IndexPage.html" %}
+{% block css %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!--<link rel="stylesheet" href="static\IncidentUpdate.css">-->
+{% endblock %}
+{% block content %}
+{% load static %}
+<style>
+        
+    .swiper-container {
+        top: 25px;
+        bottom: 100px;
+        left: 150px;
+        width: 40%;
+        height: 30%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+        .swiper-slide img {
+            display: block;
+            width: 120%;
+            height: 100%;
+            object-fit: cover;
+        }
+   
+</style>
+<div class="content">
+    <div class="textBox">
+        <h2>Problem Statement</h2>
+        <p>
+            Using ML and Deep learning, predict the upcoming number of tickets across applications
+            based on the  implementation of recent projects and past tickets history across
+            applications and forecast new business from Insurance and Retail services.
+        </p>
+        <a href="About.aspx">Learn more</a>
+    </div>
+    <div class="swiper-container mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="{% static 'images/DS1.PNG' %}" /></div>
+            <div class="swiper-slide"><img src="{% static 'images/DS2.PNG' %}" /></div>
+            <div class="swiper-slide"><img src="{% static 'images/DS3.PNG' %}" /></div>
+            <div class="swiper-slide"><img src="{% static 'images/DS4.PNG' %}" /></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
+{% endblock %}
+</div>
